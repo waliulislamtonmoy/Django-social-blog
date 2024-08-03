@@ -9,10 +9,10 @@ static %} {% block content %}
 
     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
       <a href="#">
-        <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+        <img class="rounded-t-lg" src="{{data.image}}" alt="" />
       </a>
       <div class="p-5">
-        <a href="/">
+        <a href="{% url "postdetails/data.id"  %}">
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
             {{data.title}}
           </h5>
@@ -21,7 +21,11 @@ static %} {% block content %}
         <p class="mb-3 font-normal text-gray-700">{{data.content}}</p>
         <div class="flex flex-row justify-between p-1">
           <p class="capitalize">{{data.author}}</p>
-          <p>{{data.date}}</p>
+          <img
+            class="h-10 w-10 rounded-full"
+            src="{{user.profile.image.url}}"
+            alt=""
+          />
         </div>
         <a
           href="#"
