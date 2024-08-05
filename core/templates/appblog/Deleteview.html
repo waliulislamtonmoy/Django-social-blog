@@ -4,17 +4,22 @@
 
   <p>Delete View</p>
 
-  <div>
+<div class="m-5 ">
+    <a href="/">
+        <button class="px-8 py-4 bg-green-500 p-1 text-center rounded">
+        Back
+      </button>
+    </a>
+</div>
+
+  <div class="m-5">
     <form action="" method="post">
       {% csrf_token %}
       
-      <button class="px-2 py-2 bg-red-500 p-1 text-center rounded">
+      <button class="px-8 py-4 bg-red-500 p-1 text-center rounded">
         Delete
       </button>
-      <a href="{% url "postdetails" object.id %}">
-        <button class="px-2 py-2 bg-gray-500 p-1 text-center rounded">
-        cansel
-      </button>
+     
       </a>
       
     </form>
