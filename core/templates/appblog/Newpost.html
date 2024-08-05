@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+<div>
+  {% block content %}
+  <p>Create Post</p>
+  <div class="flex justify-center items-center">
+    <form action="" method="post">
+      {% csrf_token %} {{form.as_p}}
+
+      <button class="px-2 py-2 bg-green-200 w-full rounded m-3">create</button>
+    </form>
+  </div>
+
+  {% endblock %}
+</div>

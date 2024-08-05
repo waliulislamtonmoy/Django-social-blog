@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+<div>
+  {% block content %}
+
+  <p>Delete View</p>
+
+  <div>
+    <form action="" method="post">
+      {% csrf_token %}
+      
+      <button class="px-2 py-2 bg-red-500 p-1 text-center rounded">
+        Delete
+      </button>
+      <a href="{% url "postdetails" object.id %}">
+        <button class="px-2 py-2 bg-gray-500 p-1 text-center rounded">
+        cansel
+      </button>
+      </a>
+      
+    </form>
+  </div>
+  {% endblock content %}
+</div>
