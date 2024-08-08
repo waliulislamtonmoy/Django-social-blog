@@ -1,0 +1,1 @@
+defult_app_config='Appuser.apps.AppuserConfig'
