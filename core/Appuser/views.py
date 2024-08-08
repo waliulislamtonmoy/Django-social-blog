@@ -7,6 +7,7 @@ from django.shortcuts import HttpResponsePermanentRedirect
 from django.urls import reverse
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import UserUpdateForm,UserProfileUpdateForm
 
 # Create your views here.
 
@@ -28,7 +29,21 @@ class RegisterView(View):
     
 class Profileview(LoginRequiredMixin,View):
     def get(self,request):
-        return render(request,"appuser/Profile.html")
+        p_form=UserProfileUpdateForm(instance=request.user.profile)
+        u_form=UserUpdateForm(instance=request.user)
+        context={
+            "p_form":p_form,
+            "u_form":u_form
+        }
+        return render(request,"appuser/Profile.html",context)
+    
+    def post(self,request,*args, **kwargs):
+        p_form=UserProfileUpdateForm(request.POST, request.FILES,instance=request.user.profile)
+        u_form=UserUpdateForm(request.POST,instance=request.user)
+        u_form.save()
+        p_form.save()
+        return redirect("profile")
+        
     
 
         

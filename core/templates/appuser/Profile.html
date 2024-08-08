@@ -1,5 +1,4 @@
-{% extends "base.html" %}
-
+{% extends "base.html" %} {% load crispy_forms_tags %}
 <div>
   {% block content %}
   <div class="p-5">
@@ -24,5 +23,19 @@
       </ul>
     </div>
   </div>
+
+  <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-20">
+    <div
+      class="grid sm;grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-2"
+    >
+      <div class="profile-form">
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %} {{p_form|crispy}}{{u_form|crispy}}
+          <button class="w-full bg-green-300 mt-5 rounded">submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   {% endblock content %}
 </div>
