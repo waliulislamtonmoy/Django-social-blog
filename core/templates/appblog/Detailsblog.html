@@ -9,9 +9,12 @@
       <p>{{object.author}}</p>
       {% if object.author == user %}
       <div class="p-2">
-        <button class="px-2 py-2 bg-green-400 p-1 text-center rounded">
+        <a href="{% url "update" object.id %}">
+          <button class="px-2 py-2 bg-green-400 p-1 text-center rounded">
           Update
         </button>
+        </a>
+        
         <a href="{% url "delete" object.id %}">
            <button class="px-2 py-2 bg-red-500 p-1 text-center rounded">
           Delete
